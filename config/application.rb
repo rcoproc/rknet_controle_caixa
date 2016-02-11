@@ -22,5 +22,14 @@ module Integragrp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.to_prepare do
+      Devise::SessionsController.layout "login_layout"
+      Devise::RegistrationsController.layout "login_layout"
+      Devise::ConfirmationsController.layout "login_layout"
+      Devise::UnlocksController.layout "login_layout"
+      Devise::PasswordsController.layout "login_layout"
+    end
+
   end
 end

@@ -22,6 +22,8 @@ gem 'font-awesome-sass', '~> 4.3'
 gem 'jquery-ui-themes'
 gem 'jquery-ui-rails'
 
+gem 'devise'
+
 
 gem 'puma', '~> 2.16.0'
 

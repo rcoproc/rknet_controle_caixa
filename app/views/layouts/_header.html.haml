@@ -33,4 +33,4 @@
           -#%li
           -#  %a{:href => "#"} Separated link
       %li{ style: "margin-right: 10px;"}
-        %a{:href => "#"} Sair
+        = link_to 'Sair', destroy_user_session_path, method: :delete

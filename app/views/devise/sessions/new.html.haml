@@ -1,0 +1,25 @@
+.center
+  .container
+    .row
+      .col-xs-12.col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3
+        .log-in.panel.panel-primary
+          .panel-heading
+            .panel-title.text-center
+              Identifique-se
+            -#%h5
+            -#  = link_to "Esqueci minha Senha", reset_password_url(resource_name)
+          .panel-body
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              .form-group-lg
+                = f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control input-lg'
+              .form-group-lg
+                = f.password_field :password, autocomplete: "off", placeholder: 'Senha', class: 'form-control input-lg'
+              .form-group-lg
+                - if devise_mapping.rememberable?
+                  .field
+                    = f.check_box :remember_me
+                    = f.label 'Lembrar de Mim'
+              .form-group-lg
+                = f.submit "Log in", class: 'btn-lg btn-primary btn-block'
+
+            = render "devise/shared/links"
