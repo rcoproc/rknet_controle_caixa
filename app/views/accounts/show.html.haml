@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @account.name
+%p
+  %strong Bank:
+  = @account.bank
+%p
+  %strong Bank office:
+  = @account.bank_office
+%p
+  %strong Initial balance:
+  = @account.initial_balance
+%p
+  %strong Active:
+  = @account.active
+= link_to 'Edit', edit_account_path(@account)
+|
+= link_to 'Back', accounts_path

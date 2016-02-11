@@ -1,0 +1,8 @@
+= define_grid(@accounts, hide_submit_button: true, hide_reset_button: true, show_filters: :always, allow_showing_all_records: false, upper_pagination_panel: true) do |g|
+  - g.column do |a|
+    - link_to 'Alterar', edit_account_path(a), class: 'btn btn-default'
+  - g.column name: 'Conta', attribute: 'name', detach_with_id: :name_filter
+  - g.column name: 'Banco', attribute: 'bank', detach_with_id: :bank_filter
+  - g.column name: 'Agência', attribute: 'bank_office', detach_with_id: :office_filter
+  - g.column name: 'Ativa', attribute: 'active', detach_with_id: :active_filter
+  - g.column name: 'D. Criação', attribute: 'created_at', detach_with_id: :created_at_filter

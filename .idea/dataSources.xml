@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="557154391">
+    <data-source source="LOCAL" name="Rails integragrp: development" uuid="98a81a6d-0780-4a29-ab9d-7bf17fb1952a">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/integragrp_dev.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

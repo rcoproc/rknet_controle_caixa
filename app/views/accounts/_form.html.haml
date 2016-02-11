@@ -1,0 +1,38 @@
+= form_for(@account) do |f|
+  - if @account.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@account.errors.count, "error")
+        prohibited this account from being saved:
+      %ul
+        - @account.errors.full_messages.each do |message|
+          %li= message
+  .row.form-group
+    .col-lg-2
+      = f.label 'Conta', class: 'control-label'
+    .col-lg-10
+      = f.text_field :name, class: 'form-control'
+  .row.form-group
+    .col-lg-2
+      = f.label 'Banco', class: 'control-label'
+    .col-lg-10
+      = f.text_field :bank, class: 'form-control'
+  .row.form-group
+    .col-lg-2
+      = f.label 'Agência', class: 'control-label'
+    .col-lg-10
+      = f.text_field :bank_office, class: 'form-control'
+  .row.form-group
+    .col-lg-2
+      = f.label 'Saldo Inicial', class: 'control-label'
+    .col-lg-10
+      = f.text_field :initial_balance, class: 'form-control'
+  .row.form-group
+    .col-lg-2
+      = f.label 'Ativa', class: 'control-label'
+    .col-lg-10
+      = f.check_box :active, class: 'form-control'
+  .row.form-group
+    .col-lg-2
+    .col-lg-10
+      = f.submit 'Salvar', class: 'btn btn-primary'

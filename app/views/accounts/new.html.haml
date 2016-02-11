@@ -1,0 +1,11 @@
+.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h2.panel-title Nova Conta
+      .panel-body
+        = render 'form'
+      .panel-footer
+        .row
+          .pull-right{style: 'margin-right: 10px;'}
+            = link_to 'Voltar', accounts_path, class: 'btn btn-default'

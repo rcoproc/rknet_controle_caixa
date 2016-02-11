@@ -1,0 +1,37 @@
+.row-fluid
+  .col-lg-12
+    %h3
+      %i.text-primary.glyphicon.glyphicon-th-list
+      Contas
+= render 'accounts/grid'
+
+.row
+  .col-lg-12
+    .well
+      .row
+        .col-lg-1
+          %h5
+            Conta
+        .col-lg-4
+          = grid_filter @accounts, :name_filter
+      .row
+        .col-lg-1
+          %h5
+            Banco
+        .col-lg-4
+          = grid_filter @accounts, :bank_filter
+      .row
+        .col-lg-1
+          %h5
+            Agência
+        .col-lg-4
+          = grid_filter @accounts, :office_filter
+      .row
+        .col-lg-1
+        .col-lg-4{ style: 'margin: 10px 0px;'}
+          %button.btn.btn-default.wg-external-submit-button{'data-grid-name' => 'grid'} Filtrar
+          %button.btn.btn-default.wg-external-reset-button{'data-grid-name' => 'grid'} limpar
+          = link_to 'Incluir', new_account_path, class: 'btn btn-primary'
+.row
+  .col-lg-12
+    =render_grid(@accounts)

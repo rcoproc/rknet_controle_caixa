@@ -1,0 +1,36 @@
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  / Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => "#"} IntegraGRP
+  / Collect the nav links, forms, and other content for toggling
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      %li.active
+        %a{:href => "#"} Cadastros
+      %li
+        %a{:href => "#"} Lançamentos
+    %form.navbar-form.navbar-left{:role => "search"}
+      .form-group
+        %input.form-control{:placeholder => "Procurar", :type => "text"}/
+      %button.btn.btn-default{:type => "submit"} Enviar
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Usuário
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"} Trocar de Usuário
+          %li
+            %a{:href => "#"} Alterar Senha
+          -#%li
+          -#  %a{:href => "#"} Something else here
+          -#%li
+          -#  %a{:href => "#"} Separated link
+      %li{ style: "margin-right: 10px;"}
+        %a{:href => "#"} Sair
