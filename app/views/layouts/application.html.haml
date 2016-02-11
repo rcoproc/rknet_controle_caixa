@@ -11,8 +11,5 @@
     = render 'layouts/header'
 
     .container-fluid
-      %p.notice
-        = notice
-      %p.alert
-        = alert
+      = render 'layouts/flash'
       = yield
