@@ -1,19 +1,27 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @account.name
-%p
-  %strong Bank:
-  = @account.bank
-%p
-  %strong Bank office:
-  = @account.bank_office
-%p
-  %strong Initial balance:
-  = @account.initial_balance
-%p
-  %strong Active:
-  = @account.active
-= link_to 'Edit', edit_account_path(@account)
-|
-= link_to 'Back', accounts_path
+.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h2.panel-title Conta
+      .panel-body
+        %p
+          %strong Conta:
+        %p
+          = @account.name
+        %p
+          %strong Banco:
+          = @account.bank
+        %p
+          %strong Agência:
+          = @account.bank_office
+        %p
+          %strong Saldo Inicial:
+          = @account.initial_balance
+        %p
+          %strong Ativa
+          = @account.active
+      .panel-footer
+        .row{style: 'margin-right: 10px'}
+          .pull-right
+            = link_to 'Alterar', edit_account_path(@account), class: 'btn btn-default'
+            = link_to 'Voltar', accounts_path, class: 'btn btn-default'

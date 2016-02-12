@@ -6,7 +6,9 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{:href => "#"} IntegraGRP
+    %a.navbar-brand{:href => "#"}
+      = icon('home')
+      IntegraGRP
   / Collect the nav links, forms, and other content for toggling
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
@@ -23,6 +25,7 @@
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          = icon('user')
           Usuário
           %b.caret
         %ul.dropdown-menu

@@ -35,4 +35,7 @@
   .row.form-group
     .col-lg-2
     .col-lg-10
-      = f.submit 'Salvar', class: 'btn btn-primary'
+      = button_tag(type: :submit, class: 'btn btn-primary') do
+        = icon('save')
+        Salvar
+

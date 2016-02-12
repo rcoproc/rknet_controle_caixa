@@ -1,7 +1,8 @@
 .row-fluid
   .col-lg-12
     %h3
-      %i.text-primary.glyphicon.glyphicon-th-list
+      -#%i.text-primary.glyphicon.glyphicon-th-list
+      = icon('list', class: 'text-primary')
       Contas
 = render 'accounts/grid'
 
@@ -29,9 +30,15 @@
       .row
         .col-lg-1
         .col-lg-4{ style: 'margin: 10px 0px;'}
-          %button.btn.btn-default.wg-external-submit-button{'data-grid-name' => 'grid'} Filtrar
-          %button.btn.btn-default.wg-external-reset-button{'data-grid-name' => 'grid'} limpar
-          = link_to 'Incluir', new_account_path, class: 'btn btn-primary'
+          %button.btn.btn-default.wg-external-submit-button{'data-grid-name' => 'grid'}
+            = icon('filter')
+            Filtrar
+          %button.btn.btn-default.wg-external-reset-button{'data-grid-name' => 'grid'}
+            = icon('refresh')
+            limpar
+          = link_to new_account_path, class: 'btn btn-primary' do
+            = icon('plus')
+            Incluir
 .row
   .col-lg-12
     =render_grid(@accounts)

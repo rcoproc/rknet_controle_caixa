@@ -26,7 +26,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
 
     if @account.save
-      redirect_to @account, notice: 'Account was successfully created.'
+      redirect_to @account, notice: 'Conta inserida com sucesso!'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   def update
     if @account.update(account_params)
-      redirect_to @account, notice: 'Account was successfully updated.'
+      redirect_to @account, notice: 'Conta atualizada com sucesso!'
     else
       render :edit
     end
