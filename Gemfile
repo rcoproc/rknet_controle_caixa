@@ -31,7 +31,19 @@ gem 'puma', '~> 2.16.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+group :test do
+
+  # tratamento de erros
+  gem 'better_errors'
+  gem 'pry-meta'
+
+  gem 'capybara', '~> 2.5.0'
+
+  gem 'minitest-utils'
+  gem 'rspec'
+  gem 'launchy'
+
+
 end
 
 group :development do
@@ -40,14 +52,14 @@ group :development do
   gem 'better_errors'
   gem 'pry-meta'
 
+
+  gem 'binding_of_caller'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
 
   gem 'faker'
 

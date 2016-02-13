@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  bank: MyString
-  bank_office: MyString
-  initial_balance: 9.99
-  active: false
+bra:
+  name: CONTA 1
+  bank: BRADESCO
+  bank_office: Ag. CENTRO
+  initial_balance: 1000
+  active: true
 
-two:
-  name: MyString
-  bank: MyString
-  bank_office: MyString
-  initial_balance: 9.99
-  active: false
+itau:
+  name: CONTA 2
+  bank: ITAU
+  bank_office: Ag. AEROPORTO
+  initial_balance: 1000
+  active: true
+
+BB:
+  name: CONTA 3
+  bank: BB
+  bank_office: Ag. AEROPORTO
+  initial_balance: 500
+  active: true

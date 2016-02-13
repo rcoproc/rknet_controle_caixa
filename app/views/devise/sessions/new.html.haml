@@ -12,14 +12,20 @@
             = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .form-group-lg
                 = f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control input-lg'
+              .row
+                %span&&nbsp;
               .form-group-lg
                 = f.password_field :password, autocomplete: "off", placeholder: 'Senha', class: 'form-control input-lg'
+              .row
+                %span&&nbsp;
               .form-group-lg
                 - if devise_mapping.rememberable?
                   .field
                     = f.check_box :remember_me
                     = f.label 'Lembrar de Mim'
               .form-group-lg
-                = f.submit "Log in", class: 'btn-lg btn-primary btn-block'
+                = f.submit "Entrar", class: 'btn-lg btn-primary btn-block'
+              .row
+                %span&&nbsp;
 
             = render "devise/shared/links"

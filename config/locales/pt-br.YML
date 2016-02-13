@@ -219,9 +219,7 @@ pt-BR:
         updated_at: "Atualizado em"
       user:
         id: Id
-        user_id: usuário
-        user_name: apelido
-        name: usuário
+        name: Nome
         iagree: eu concordo
         docnumber: CPF
         reset_password_sent_at: Senha enviada em
@@ -231,3 +229,5 @@ pt-BR:
         last_sign_in_at: Último Login
         last_sign_in_ip: Último IP
         current_sign_in_ip: Logado de
+        password: Senha
+        password_confirmation: Confirmação da Senha

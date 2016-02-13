@@ -26,7 +26,10 @@
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
           = icon('user')
-          Usuário
+          - if user_signed_in?
+            = current_user.name
+          - else
+            Usuário
           %b.caret
         %ul.dropdown-menu
           %li
