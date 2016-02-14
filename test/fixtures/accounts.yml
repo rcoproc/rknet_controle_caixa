@@ -6,6 +6,7 @@ bra:
   bank_office: Ag. CENTRO
   initial_balance: 1000
   active: true
+  user_id: 1
 
 itau:
   name: CONTA 2
@@ -13,6 +14,7 @@ itau:
   bank_office: Ag. AEROPORTO
   initial_balance: 1000
   active: true
+  user_id: 1
 
 BB:
   name: CONTA 3
@@ -20,3 +22,4 @@ BB:
   bank_office: Ag. AEROPORTO
   initial_balance: 500
   active: true
+  user_id: 1
