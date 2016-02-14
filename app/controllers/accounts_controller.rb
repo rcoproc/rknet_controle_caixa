@@ -1,11 +1,12 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :owned_account, only: [:show, :edit, :update, :destroy]
 
   # GET /accounts
 
   def index
-    @accounts = initialize_grid(Account)
+    @accounts = initialize_grid(current_user.accounts)
   end
 
   # GET /accounts/1
@@ -14,7 +15,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    @account = Account.new(:user_id => current_user.id)
   end
 
   # GET /accounts/1/edit
@@ -55,6 +56,14 @@ class AccountsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def account_params
-      params.require(:account).permit(:name, :bank, :bank_office, :initial_balance, :active)
+      params.require(:account).permit(:name, :bank, :bank_office, :initial_balance, :active, :user_id)
+    end
+
+    def owned_account
+      @account = Account.find(params[:id])
+      unless current_user == @account.user
+        flash[:alert] = "Esta conta não pertence a você!"
+        redirect_to root_path
+      end
     end
 end

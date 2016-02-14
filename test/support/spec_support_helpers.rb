@@ -8,10 +8,11 @@ module HelperMethods
   def login_with_valid_user
     visit '/users/sign_in'
 
-    fill_in 'Email', :with => 'rcoproc@gmail.com'
+    fill_in 'Email', :with => users(:rco).email # Este users vem do fixture
     fill_in 'user_password', :with => '12345678'
 
     click_button 'Entrar'
   end
+
 
 end

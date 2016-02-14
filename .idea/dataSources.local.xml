@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Rails integragrp: development" uuid="98a81a6d-0780-4a29-ab9d-7bf17fb1952a" />
-    <data-source name="Rails integragrp: development" uuid="f88eda55-dd69-497f-ad76-dc6c1d4ce457">
-      <first-sync>true</first-sync>
+    <data-source name="Rails integragrp: development" uuid="a4711c6c-bbc0-4a60-a911-77c91dc4a8c6">
+      <schema-pattern>integragrp_dev.*</schema-pattern>
+      <default-schemas>integragrp_dev.*</default-schemas>
     </data-source>
-    <data-source name="Rails integragrp: test" uuid="cad65813-96bb-45dd-b863-7c6a12f09d35" />
+    <data-source name="Rails integragrp: test" uuid="03012ac4-c8da-4623-a4c3-eb5819a7f7b1">
+      <schema-pattern>integragrp_test.*</schema-pattern>
+      <default-schemas>integragrp_test.*</default-schemas>
+    </data-source>
+    <data-source name="Rails integragrp: production" uuid="87d6a70f-cfb1-4123-931e-31ee65294806">
+      <first-sync>true</first-sync>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfefdff9dffedff5dffadfeddff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
   </component>
 </project>

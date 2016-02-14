@@ -45,6 +45,7 @@ class SignTest < ActionDispatch::IntegrationTest
     # save_and_open_page
 
     assert page.has_text?('Logado com sucesso')
+
   end
 
   test 'logged and correct search' do

@@ -6,9 +6,10 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{:href => "#"}
-      = icon('home')
-      IntegraGRP
+    = link_to root_path do
+      .navbar-brand{:href => "#"}
+        = icon('home')
+        IntegraGRP
   / Collect the nav links, forms, and other content for toggling
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
