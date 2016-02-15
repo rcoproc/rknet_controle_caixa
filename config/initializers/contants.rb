@@ -16,3 +16,5 @@ EMAIL_FORMAT = /
   \.[a-z]{2,6}           # 5
   \z
 /xi
+
+DEB_CRE = { :Débito => 'D', :Crédito => 'C' }

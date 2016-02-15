@@ -1,0 +1,26 @@
+.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h2.panel-title Lançamento
+      .panel-body
+        %p
+          %strong Conta:
+          = @account_appointment.account.name
+        %p
+          %strong Data:
+          = @account_appointment.date_br(@account_appointment.date)
+        %p
+          %strong Descrição:
+          = @account_appointment.description
+        %p
+          %strong Documento:
+          = @account_appointment.document
+        %p
+          %strong Tipo(Débito/Crédito):
+          = @account_appointment.deb_cre
+        %p
+          %strong Valor:
+          = @account_appointment.value_br
+        = link_to 'Alterar', edit_account_appointment_path(@account_appointment), class: 'btn btn-primary'
+        = link_to 'Voltar', account_appointments_path, class: 'btn btn-primary'

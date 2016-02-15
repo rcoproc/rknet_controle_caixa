@@ -1,0 +1,42 @@
+= form_for(@account_appointment) do |f|
+  - if @account_appointment.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@account_appointment.errors.count, "Problema")
+        na gravação dos dados deste lançamento(por favor verifique):
+      %ul
+        - @account_appointment.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :account, class: "control-label"
+    %br
+    - conta = session[:conta_id]
+    - if conta > 0
+      = f.hidden_field :conta_id, :value => conta
+      = f.collection_select :account_id, current_user.accounts.order(:name), :id, :name, { include_blank: true,  :selected => conta, class: 'form-control' }
+    - else
+      = f.collection_select :account_id, current_user.accounts.order(:name), :id, :name, { include_blank: true, class: 'form-control'}
+  .form-group
+    = f.label :date , class: "control-label"
+    = f.date_field :date, :value => Time.now.strftime('%Y-%m-%d'), class: 'form-control'
+  .form-group
+    = f.label :description, class: "control-label"
+    %br/
+    = f.text_field :description, autofocus: true,  class: 'form-control'
+  .form-group
+    = f.label :document, class: "control-label"
+    %br/
+    = f.text_field :document, class: 'form-control'
+  .form-group
+    = f.label :deb_cre, class: "control-label"
+    %br/
+    = f.select :deb_cre, DEB_CRE , class: 'form-control'
+    / <= f.text_field :deb_cre %>
+  .form-group
+    = f.label :value, class: "control-label"
+    %br/
+    = f.number_field :value, class: 'form-control', step: 'any'
+  .form-group
+    = f.submit 'Gravar e Voltar', class: 'btn btn-success'
+    -# = link_to 'Novo Lançamento', acc_create_and_new_path({@account_appointment}), class: 'btn btn-success', method: :post
+    = link_to 'Voltar', account_appointments_path, class: 'btn btn-default'

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :accounts, foreign_key: 'user_id', dependent: :destroy
+  has_many :account_appointments, :through => :accounts
 
   validates_presence_of :name, message: '- deverá ser informado.'
 

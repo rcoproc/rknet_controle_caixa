@@ -12,7 +12,7 @@
       = f.hidden_field :user_id
       = f.label 'Conta', class: 'control-label'
     .col-lg-10
-      = f.text_field :name, class: 'form-control'
+      = f.text_field :name, autofocus: true, class: 'form-control'
   .row.form-group
     .col-lg-2
       = f.label 'Banco', class: 'control-label'
@@ -27,7 +27,11 @@
     .col-lg-2
       = f.label 'Saldo Inicial', class: 'control-label'
     .col-lg-10
-      = f.text_field :initial_balance, class: 'form-control'
+      - if @account.id.blank?
+        = f.text_field :initial_balance, class: 'form-control'
+      - else
+        = f.text_field :initial_balance, class: 'form-control', disabled: true
+
   .row.form-group
     .col-lg-2
       = f.label 'Ativa', class: 'control-label'

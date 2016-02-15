@@ -15,6 +15,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require wice_grid
-//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
+
+
+  //require bootstrap-datepicker

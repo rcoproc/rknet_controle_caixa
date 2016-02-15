@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>RailsDependency</ID>
+  <OriginalElement>#integragrp</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">User</node>
+    <node x="931.0" y="154.5">AccountAppointment</node>
+    <node x="568.0" y="66.0">Account</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Account" target="AccountAppointment">
+      <point x="141.5" y="-0.0" />
+      <point x="-83.0" y="-0.0" />
+    </edge>
+    <edge source="User" target="Account">
+      <point x="244.0" y="-0.0" />
+      <point x="-141.5" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8352730528200537" x="548.5" y="169.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Migration fields</Category>
+    <Category>System DB fields</Category>
+    <Category>Own fields</Category>
+  </Categories>
+</Diagram>
+

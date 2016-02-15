@@ -6,7 +6,13 @@ class AccountsController < ApplicationController
   # GET /accounts
 
   def index
-    @accounts = initialize_grid(current_user.accounts)
+    @accounts = initialize_grid(current_user.accounts.order(:bank, :bank_office, :name),
+    name: 'grid',
+    enable_export_to_csv: true,
+    csv_field_separator: ',',
+    csv_file_name: 'contas')
+
+    export_grid_if_requested('grid' => 'grid')
   end
 
   # GET /accounts/1

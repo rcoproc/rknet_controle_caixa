@@ -3,7 +3,7 @@
     %h3
       -#%i.text-primary.glyphicon.glyphicon-th-list
       = icon('list', class: 'text-primary')
-      Contas
+      Contas Cadastradas
 = render 'accounts/grid'
 
 .row
@@ -39,6 +39,8 @@
           = link_to new_account_path, class: 'btn btn-primary' do
             = icon('plus')
             Incluir
+          %button.btn.btn-success.wg-external-csv-exort-button{'data-grid-name' => 'grid'}
+            Exp. para CSV
 .row
   .col-lg-12
     =render_grid(@accounts)

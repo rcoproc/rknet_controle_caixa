@@ -231,3 +231,10 @@ pt-BR:
         current_sign_in_ip: Logado de
         password: Senha
         password_confirmation: Confirmação da Senha
+      account_appointment:
+        account: Conta
+        date: Data
+        description: Descrição
+        document: Documento
+        deb_cre: Tipo
+        value: Valor

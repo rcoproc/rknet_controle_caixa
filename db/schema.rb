@@ -11,19 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214051930) do
+ActiveRecord::Schema.define(version: 20160215025422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_appointments", force: :cascade do |t|
+    t.date     "date"
+    t.string   "description", limit: 50
+    t.string   "document",    limit: 20
+    t.string   "deb_cre",     limit: 1
+    t.decimal  "value",                  precision: 12, scale: 2
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "account_id"
+  end
+
+  add_index "account_appointments", ["account_id"], name: "index_account_appointments_on_account_id", using: :btree
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
     t.string   "bank"
     t.string   "bank_office"
-    t.decimal  "initial_balance", precision: 12
-    t.boolean  "active",                         default: true
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.decimal  "initial_balance", precision: 12, scale: 2
+    t.boolean  "active",                                   default: true
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.integer  "user_id"
   end
 
@@ -48,5 +61,6 @@ ActiveRecord::Schema.define(version: 20160214051930) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "account_appointments", "accounts"
   add_foreign_key "accounts", "users"
 end

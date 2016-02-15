@@ -15,11 +15,31 @@
           %strong Agência:
           = @account.bank_office
         %p
-          %strong Saldo Inicial:
-          = @account.initial_balance
-        %p
           %strong Ativa
           = @account.active
+
+        .row
+          .col-lg-4
+            %p
+              %strong Saldo Inicial:
+              %br
+                = @account.initial_balance
+
+          .col-lg-4
+            %p
+              %strong T. Débitos
+              %br
+                = @account.debits
+
+          .col-lg-4
+            %p
+              %strong T. Créditos
+              %br
+                = @account.credits
+        .text-center
+          .h3
+            %strong Saldo
+            = @account.money_number_br(@account.balance)
       .panel-footer
         .row{style: 'margin-right: 10px'}
           .pull-right

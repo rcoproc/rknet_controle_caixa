@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
+user1 = User.create(name: 'RCO', email: 'rcoproc@gmail.com', password: '12345678', password_confirmation: '12345678')
+user2 = User.create(name: 'Ricardo', email: 'ricardo@rcop.com.br', password: '12345678', password_confirmation: '12345678')
+
+
 Account.destroy_all
 
 contas = []
@@ -20,7 +25,7 @@ puts "Aguarde, criando contas..."
       bank_office: "Ag. CENTRO",
       active: true,
       initial_balance: 1000,
-      user_id: 1
+      user_id: user1.id
   }
 
   contas.push(new_conta)
@@ -30,3 +35,8 @@ end
 Account.create(contas)
 
 puts "5 contas do usuário 1 foram criadas."
+
+Account.create( name: 'Conta Usuario 2 BNDES', bank: 'BANCO BNDES', bank_office: "Ag. DF", active: true, initial_balance: 1, user_id: user2.id)
+Account.create( name: 'Conta Usuario 2 CAIXA', bank: 'CEF', bank_office: "Ag. DF", active: true, initial_balance: 1, user_id: user2.id)
+
+puts "2 conta do usuário 2 foram criadas."
