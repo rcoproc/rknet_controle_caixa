@@ -11,8 +11,6 @@
     </data-source>
     <data-source name="Rails integragrp: production" uuid="87d6a70f-cfb1-4123-931e-31ee65294806">
       <first-sync>true</first-sync>
-      <user-name>test_pg</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfefdff9dffedff5dffadfeddff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
     </data-source>
   </component>
 </project>

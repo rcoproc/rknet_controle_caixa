@@ -12,7 +12,7 @@
       <column name="description" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
       <column name="document" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="deb_cre" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
-      <column name="value" sqlType="numeric" precision="131089" scale="0" nullable="true" jdbcType="2"/>
+      <column name="value" sqlType="numeric" precision="12" scale="2" nullable="true" jdbcType="2"/>
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="account_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
@@ -37,7 +37,7 @@
       <column name="name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="bank" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="bank_office" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
-      <column name="initial_balance" sqlType="numeric" precision="12" scale="0" nullable="true" jdbcType="2"/>
+      <column name="initial_balance" sqlType="numeric" precision="12" scale="2" nullable="true" jdbcType="2"/>
       <column name="active" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7" def="dHJ1ZQ=="/>
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>

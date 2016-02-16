@@ -30,7 +30,7 @@ class AccountsController < ApplicationController
 
   # POST /accounts
   def create
-    @account = Account.new(account_params)
+    @account = current_user.accounts.new(account_params)
 
     if @account.save
       redirect_to @account, notice: 'Conta inserida com sucesso!'
@@ -62,7 +62,7 @@ class AccountsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def account_params
-      params.require(:account).permit(:name, :bank, :bank_office, :initial_balance, :active, :user_id)
+      params.require(:account).permit(:name, :bank, :bank_office, :initial_balance, :active)
     end
 
     def owned_account

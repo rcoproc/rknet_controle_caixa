@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '716979a852740c203b287c6fae51571c238a534e3383d6bb88de13031d6a5360c701363e4316aee92d8f31ccbdf72e862adaa2ea802323be68095c6b9af035e4'
+  config.secret_key = '4de73c396f3f5dc8be9ea14b101f64cb44b27397e7e113af3166bfbfd57e840b9d46c8da19b29b5fd1263ea648401405eef0d66e6b9874725faea527673567ce'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -172,13 +172,13 @@ Devise.setup do |config|
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
-  # config.maximum_attempts = 20
+  config.maximum_attempts = 5
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
-  # config.last_attempt_warning = true
+  config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #

@@ -9,4 +9,4 @@ ALFA VERSION <br>
                             Fixture das contas relacionadas com usuário 1<br>
   Vs 1.0.005 - 15/02/2016 , Ajustes visuais na tela de Lançamentos<br>
                             Regras de Saldo Negativo e formatação de valores nas telas<br>
-                            
+                            Incluido relacionamento corrento no cadastramento da conta.<br>

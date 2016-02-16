@@ -64,6 +64,5 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: integragrp_production
-  username: test_pg
-  password: <%= ENV['TEST_PG_DATABASE_PASSWORD'] %>
