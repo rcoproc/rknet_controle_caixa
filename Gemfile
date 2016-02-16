@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'haml'
-
+gem 'kaminari'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 

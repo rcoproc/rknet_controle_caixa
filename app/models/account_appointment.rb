@@ -8,6 +8,7 @@ class AccountAppointment < ActiveRecord::Base
   validate :verify_balance, :verify_values_negative
 
   before_save :up_description
+
   # enum deb_cred: { 'Debito': 'D', 'Credito': 'C'}
 
 
@@ -47,6 +48,5 @@ class AccountAppointment < ActiveRecord::Base
     # money_number_br(value)
     ActionController::Base.helpers.number_to_currency(value)
   end
-
 
 end

@@ -1,11 +1,13 @@
 class Account < ActiveRecord::Base
   include ModelUtil
+  default_scope { where(active: true) }
 
   belongs_to :user
   has_many   :account_appointments, foreign_key: 'account_id', dependent: :destroy
 
 
   validates_presence_of :user_id
+  before_destroy        :prohibity_account_destroy
 
   def debits
     AccountAppointment.where(:account_id => id, :deb_cre => 'D').sum(:value)
@@ -39,6 +41,15 @@ class Account < ActiveRecord::Base
     # require "pry"; binding.pry
 
     # ActionController::Base.helpers.number_to_currency(calc)
+
+  end
+
+  protected
+
+  def prohibity_account_destroy
+    errors.add(:name, "A conta não pode ser excluida!!")
+
+    return false
 
   end
 

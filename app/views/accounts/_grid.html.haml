@@ -3,10 +3,16 @@
     - link_to 'Lançar', account_appointments_path(conta_id: a.id), class: 'btn btn-success', title:'Clique aqui para fazer os lançamentos(DébitoxCrédito) desta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
   - g.column name: 'Conta', attribute: 'name', detach_with_id: :name_filter do |a|
     - link_to a.name, account_path(a), title:'Clique aqui para Visualizar os dados desta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
+
   - g.column name: 'Banco', attribute: 'bank', detach_with_id: :bank_filter
   - g.column name: 'Agência', attribute: 'bank_office', detach_with_id: :office_filter
   - g.column name: 'Saldo', :html => {:style => 'text-align: right'} do |a|
     - a.money_number_br(a.balance)
+
+  - g.column :html => {:style => 'text-align: center'}  do |a|
+    - link_to 'Transferir', account_path(a.id), class: 'btn btn-default', title:'Clique aqui para fazer Transferência de Valores nesta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
+  - g.column :html => {:style => 'text-align: center'}  do |a|
+    - link_to 'Encerrar', clousure_path(id: a.id), method: :post, data: { confirm: 'Tem certeza' }, class: 'btn btn-default', title:'Clique aqui ENCERRAR esta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
   - g.column name: 'Ativa', :html => {:style => 'text-align: center'},  attribute: 'active', detach_with_id: :active_filter do |a|
     - a.active? ? 'S' : ''
   - g.column name: 'D. Criação', attribute: 'created_at', detach_with_id: :created_at_filter do |a|

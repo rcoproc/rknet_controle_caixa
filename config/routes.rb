@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :account_appointments do
-    # get '/reset_password' => "passwordusers#new", :as => :reset_password
-  end
-  post '/acc_app_create_and_new' => 'account_appointments#create_and_new', as: :acc_create_and_new
+  root 'accounts#index'
 
   resources :accounts
 
-  root 'accounts#index'
+  post '/transfer' => 'accounts#transfer', as: :transfer
+  post '/clousure' => 'accounts#clousure', as: :clousure
+
+  resources :account_appointments do
+    # get '/reset_password' => "passwordusers#new", :as => :reset_password
+  end
+
+  post '/acc_app_create_and_new' => 'account_appointments#create_and_new', as: :acc_create_and_new
+
+
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 

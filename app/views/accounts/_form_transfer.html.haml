@@ -1,0 +1,15 @@
+= form_tag('/transfer') do
+  - conta = params[:id]
+  = hidden_field_tag "id", conta
+  .form-group
+    = label_tag 'Transferir para - Conta Destino'
+    = select_tag "conta_dest_id", options_from_collection_for_select(@transfer, "id", "name"), {default_blank: 'Informe...', class: 'form-control'}
+  .form-group
+    .row
+      .col-lg-6
+        = label_tag 'Valor a ser transferido'
+      .col-lg-6
+        = number_field_tag "value", :required => true, autofocus: true, min: 1, max: @account.balance, step: 0.01, class: 'form-control'
+  .form-group
+    .text-center
+      = submit_tag 'Transferir', class: 'btn btn-primary', data: { confirm: 'Tem certeza?' }

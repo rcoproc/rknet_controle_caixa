@@ -1,6 +1,7 @@
 
 
 class AccountAppointmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_account_appointment, only: [:show,  :edit, :update, :destroy]
   before_action :owned_account, only: [:show, :edit, :update, :destroy]
 
@@ -18,7 +19,8 @@ class AccountAppointmentsController < ApplicationController
       conta = session[:conta_id]
     end
 
-    date = params[:date] if params.has_key?(:date)
+    start_date = params[:start_date] if params.has_key?(:start_date)
+    end_date = params[:end_date] if params.has_key?(:end_date)
     tipo = params[:deb_cre] if params.has_key?(:deb_cre)
 
 
@@ -26,7 +28,7 @@ class AccountAppointmentsController < ApplicationController
 
     if conta
 
-      @account = current_user.accounts.find_by id: session[:conta_id] # Show in the index Filter
+      @account = current_user.accounts.find_by id: conta # Show in the index Filter
 
       if @account
 
@@ -34,10 +36,12 @@ class AccountAppointmentsController < ApplicationController
 
         app = app.where("account_id = ?", conta)
 
-        app = app.where("date <= ?", date) if date and not date.blank?
+        app = app.where("date >= ?", start_date) if start_date and not start_date.blank?
+        app = app.where("date <= ?", end_date) if end_date and not end_date.blank?
         app = app.where("deb_cre = ?", tipo) if tipo and not tipo.blank?
 
-        @accounts_appointments = app.order(date: :desc, deb_cre: :desc, id: :desc)
+        @accounts_appointments = app.order(date: :desc, id: :desc).page(params[:page])
+
       else
         flash[:alert] = "Esta conta não pertence a você!"
         redirect_to accounts_path
@@ -55,6 +59,18 @@ class AccountAppointmentsController < ApplicationController
   def new
     # @account = current_user.Account.all
     @account_appointment = AccountAppointment.new
+
+    if params.has_key?(:type_app)
+      type_app = params[:type_app]
+      case type_app
+        when 'D'
+          @account_appointment = AccountAppointment.new(:deb_cre => 'C', :description => 'DEPÓSITO')
+
+        when 'S'
+          @account_appointment = AccountAppointment.new(:deb_cre => 'D', :description => 'SAQUE')
+      end
+    end
+
   end
 
   # GET /account_appointments/1/edit

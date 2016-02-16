@@ -23,23 +23,26 @@
             %p
               %strong Saldo Inicial:
               %br
-                = @account.initial_balance
+                = @account.money_number_br(@account.initial_balance)
 
           .col-lg-4
             %p
               %strong T. Débitos
               %br
-                = @account.debits
+                = @account.money_number_br(@account.debits)
 
           .col-lg-4
             %p
               %strong T. Créditos
               %br
-                = @account.credits
+                = @account.money_number_br(@account.credits)
         .text-center
           .h3
             %strong Saldo
             = @account.money_number_br(@account.balance)
+        .form-group
+          .col-lg-12
+            = render 'form_transfer'
       .panel-footer
         .row{style: 'margin-right: 10px'}
           .pull-right

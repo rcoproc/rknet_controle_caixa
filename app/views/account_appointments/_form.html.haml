@@ -21,8 +21,11 @@
     = f.date_field :date, :value => Time.now.strftime('%Y-%m-%d'), class: 'form-control'
   .form-group
     = f.label :description, class: "control-label"
-    %br/
-    = f.text_field :description, autofocus: true,  class: 'form-control'
+    %br
+    - if params.has_key?(:type_app)
+      = f.text_field :description, autofocus: false,  class: 'form-control'
+    - else
+      = f.text_field :description, autofocus: true,  class: 'form-control'
   .form-group
     = f.label :document, class: "control-label"
     %br/
@@ -35,8 +38,11 @@
   .form-group
     = f.label :value, class: "control-label"
     %br/
-    = f.number_field :value, class: 'form-control', step: 'any'
+    - if params.has_key?(:type_app)
+      = f.number_field :value, autofocus: true,  class: 'form-control', step: 'any'
+    - else
+      = f.number_field :value, class: 'form-control', step: 'any'
   .form-group
-    = f.submit 'Gravar e Voltar', class: 'btn btn-success'
+    = f.submit 'Gravar', class: 'btn btn-success', data: { confirm: 'Tem certeza?' }
     -# = link_to 'Novo Lançamento', acc_create_and_new_path({@account_appointment}), class: 'btn btn-success', method: :post
     = link_to 'Voltar', account_appointments_path, class: 'btn btn-default'

@@ -16,11 +16,17 @@
       %li.active
         = link_to 'Contas', root_path
       %li
-        %a{:href => "#"} Consultas e Extratos
+        .navbar-text.text-white
+          Consultas e Extratos
     %form.navbar-form.navbar-left{:role => "search"}
       .form-group
-        %input.form-control{:placeholder => "Procurar", :type => "text"}/
-      %button.btn.btn-default{:type => "submit"} Enviar
+        = form_tag('/account_appointments', method: :post,  authenticity_token: false) do
+          - conta = session[:conta_id]
+          - if conta
+            = select_tag 'conta_id', options_from_collection_for_select( @user_account, 'id', 'name', conta) , class: 'form-control'
+          - else
+            = select_tag 'conta_id', options_from_collection_for_select( @user_account, 'id', 'name'), include_blank: 'Selecione' , class: 'form-control'
+          = submit_tag 'Mudar', class: 'btn btn-default'
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}

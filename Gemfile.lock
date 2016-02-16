@@ -250,6 +250,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   jquery-ui-themes
+  kaminari
   launchy
   minitest-utils
   pg (~> 0.15)

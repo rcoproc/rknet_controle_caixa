@@ -17,6 +17,18 @@
           #{@account.bank_office}
   %div
     .col-lg-6
+      -# Saldo Atual
+      .panel.panel-info
+        .panel-heading
+          .panel-title
+            .text-center
+              Saldo Atual
+        .panel-body
+          %h3
+            .text-center
+              #{@account.balance_br}
+    .col-lg-6
+      -# Saldo Inicial
       .panel.panel-info
         .panel-heading
           .panel-title
@@ -27,17 +39,6 @@
             .text-center
               .text-muted
                 #{@account.initial_balance_br}
-    .col-lg-6
-      .panel.panel-info
-        .panel-heading
-          .panel-title
-            .text-center
-              Saldo Atual
-        .panel-body
-          %h3
-            .text-center
-              #{@account.balance_br}
-
   .row
     .col-lg-12
       = form_tag( account_appointments_path, method: 'get' ) do
@@ -47,23 +48,41 @@
           .col-lg-6
             .row
               .col-lg-12
-                .col-lg-5
-                  = link_to('Novo Lançamento', new_account_appointment_path({ conta_id: params[:conta_id]} ), class: 'btn btn-lg btn-primary btn-block')
+                .col-lg-4{style: 'padding: 10px;'}
+                  = link_to('Saque', new_account_appointment_path(:type_app => 'S'), class: 'btn btn-lg btn-primary btn-block')
+                .col-lg-4{style: 'padding: 10px;'}
+                  = link_to('Depósito', new_account_appointment_path(:type_app => 'D'), class: 'btn btn-lg btn-primary btn-block')
+                .col-lg-4{style: 'padding: 10px;'}
             .row
-              %span&&nbsp;
+              .col-lg-12
+                .col-lg-4{style: 'padding: 10px;'}
+                  = link_to('Novo Lançamento', new_account_appointment_path, class: 'btn btn-lg btn-default btn-block')
+                .col-lg-4{style: 'padding: 10px;'}
+                  = link_to('Transferência', account_path(@account), class: 'btn btn-lg btn-primary btn-block')
+                .col-lg-4
           .col-lg-6
             .row
               .col-lg-6
                 .form-group
                   .row
                     .col-lg-6
-                      = label_tag(:Data, "Data", class: 'control-label')
+                      = label_tag(:Data, "D. Inicio", class: 'control-label')
                       / <= select_tag :conta_id, options_for_select( current_user.accounts.collect{|a| [a.name, a.id]} ) %>
                     .col-lg-6
-                      - if params.has_key?(:date)
-                        = date_field_tag :date, params[:date], class: 'form-control'
+                      - if params.has_key?(:start_date)
+                        = date_field_tag :start_date, params[:start_date], class: 'form-control'
                       - else
-                        = date_field_tag :date, class: 'form-control'
+                        = date_field_tag :start_date, class: 'form-control'
+              .col-lg-6
+                .form-group
+                  .col-lg-6
+                    = label_tag(:Data, "D. Final", class: 'control-label')
+                  / <= select_tag :conta_id, options_for_select( current_user.accounts.collect{|a| [a.name, a.id]} ) %>
+                  .col-lg-6
+                    - if params.has_key?(:end_date)
+                      = date_field_tag :end_date, params[:end_date], class: 'form-control'
+                    - else
+                      = date_field_tag :end_date, class: 'form-control'
             .row
               .col-lg-6
                 .form-group
@@ -83,7 +102,6 @@
         .row
           .col-lg-6
           .col-lg-6
-
 .table-responsive
   %table.table.table-striped.table-hover.table-condensed
     %thead
@@ -103,7 +121,7 @@
         %th
           .text-right
             S. Anterior
-        %th{:colspan => "2"}
+        %th
     %tbody
       - @accounts_appointments.each do |acc_app|
         %tr
@@ -125,9 +143,9 @@
             %td  
           %td{align: "right"}
             = acc_app.money_number_br( acc_app.account.prev_balance(acc_app.date, acc_app.id))
-          %td
-            .text-center
-              = link_to 'Alterar', edit_account_appointment_path(acc_app)
+          -#%td
+          -#  .text-center
+          -#    = link_to 'Alterar', edit_account_appointment_path(acc_app)
           %td
             .text-center
               = link_to 'Visualizar', account_appointment_path(acc_app)
@@ -143,4 +161,6 @@
           %h4
             = @account.initial_balance_br
         %td{:colspan => "4"}
+.row
+  = paginate @accounts_appointments
 %br/
