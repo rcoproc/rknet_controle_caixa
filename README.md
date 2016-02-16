@@ -11,4 +11,6 @@ TEST VERSION <br>
                             Regras de Saldo Negativo e formatação de valores nas telas<br>
                             Incluido relacionamento corrento no cadastramento da conta.<br>
   Vs 1.0.006 - 16/02/2016 , Arquivos de Layout com tag viewport e ambiente do Heroku Pronto<br>
+  Vs 1.0.006 - 16/02/2016 , Movimentações completa na conta(Saque, depósito, taxa de transferência, <br>
+                            , kaminari na paginação e combo de seleção das contas <br>
                             
