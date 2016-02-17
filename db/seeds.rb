@@ -7,17 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 AccountAppointment.transaction do
-  AccountAppointment.destroy_all
+  AccountAppointment.delete_all
 end
 
 # Destroy with and without scope(active:false)
 Account.transaction do
-  Account.destroy_all
-  Account.where(active: false).unscoped.destroy_all
+  Account.unscoped.delete_all
 end
 
 User.transaction do
-  User.destroy_all
+  User.delete_all
 end
 
 user1 = User.create(name: 'RCO', email: 'caixa@gmail.com', password: '12345678', password_confirmation: '12345678')

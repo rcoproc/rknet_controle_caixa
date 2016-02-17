@@ -7,7 +7,7 @@
 rco:
   id: 1
   name: RCO
-  email: rcoproc@gmail.com
+  email: caixa@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '12345678') %>
 
 #two:

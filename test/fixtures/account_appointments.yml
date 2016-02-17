@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  account: 
-  date: MyString
-  description: MyString
-  document: MyString
-  type: 
-  value: 9.99
+  account: accounts(:bra)
+  date: 2016-01-01
+  description: DEPÓSITO
+  document: XPTO
+  deb_cre: C
+  value: 100
 
 two:
-  account: 
-  date: MyString
-  description: MyString
-  document: MyString
-  type: 
-  value: 9.99
+  account: accounts(:bra)
+  date: 2016-01-01
+  description: SAQUE
+  document: ABCD
+  deb_cre: C
+  value: 10

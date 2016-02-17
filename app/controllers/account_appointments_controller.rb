@@ -77,7 +77,7 @@ class AccountAppointmentsController < ApplicationController
     @account_appointment = AccountAppointment.new(account_appointment_params)
 
     if @account_appointment.save
-      redirect_to account_appointments_path, notice: 'Lançamento inserido com sucesso!'
+      redirect_to account_appointments_path, notice: 'Lançamento realizado com sucesso!'
     else
       render :new
     end
@@ -87,7 +87,7 @@ class AccountAppointmentsController < ApplicationController
     @account_appointment = AccountAppointment.new(account_appointment_params)
 
     if @account_appointment.save
-      redirect_to new_account_appointment_path, notice: 'Lançamento inserido com sucesso!'
+      redirect_to new_account_appointment_path, notice: 'Lançamento realizado com sucesso!'
     else
       render :new
     end

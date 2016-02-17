@@ -6,8 +6,10 @@ class Account < ActiveRecord::Base
   has_many   :account_appointments, foreign_key: 'account_id', dependent: :destroy
 
 
-  validates_presence_of :user_id
-  before_destroy        :prohibity_account_destroy
+  validates_presence_of :user_id, :name, :bank, :bank_office
+  validates             :user, presence: true
+  validates             :initial_balance, :numericality => { :greater_than => 0, message: 'deverá ser um valor maior que ZERO.'}
+  before_destroy        :stop_account_destroy, prepend: true
 
   def debits
     AccountAppointment.where(:account_id => id, :deb_cre => 'D').sum(:value)
@@ -46,11 +48,9 @@ class Account < ActiveRecord::Base
 
   protected
 
-  def prohibity_account_destroy
-    # errors.add(:name, "A conta não pode ser excluida!!")
-    #
-    # return false
-
+  def stop_account_destroy
+    errors.add(:name, "Esta conta não pode ser excluida!")
+    false
   end
 
 end

@@ -44,5 +44,5 @@
       = f.number_field :value, class: 'form-control', step: 'any'
   .form-group{style: 'margin-top: 10px;'}
     = f.submit 'Gravar', class: 'btn btn-success', data: { confirm: 'Tem certeza?' }
-    -# = link_to 'Novo Lançamento', acc_create_and_new_path({@account_appointment}), class: 'btn btn-success', method: :post
+    -#= link_to 'Novo Lançamento', acc_create_and_new_path, class: 'btn btn-success', method: :post
     = link_to 'Voltar', account_appointments_path, class: 'btn btn-default'

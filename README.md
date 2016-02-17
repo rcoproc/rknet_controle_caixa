@@ -1,4 +1,4 @@
-# App Controle de Caixa - Change Log
+# App Controle de Caixa(Backend) - Change Log
 
 TEST VERSION <br>
   Vs 1.0.001 - 11/02/2016 , Initial Commit. Account Model com CRUD completo<br>
@@ -14,4 +14,5 @@ TEST VERSION <br>
   Vs 1.0.006 - 16/02/2016 , Movimentações completa na conta(Saque, depósito, taxa de transferência, <br>
                             , kaminari na paginação e combo de seleção das contas <br>
   Vs 1.0.007 - 17/02/2016 , Ajustes diversos no layout, tela de novo usuário e lógica de filtor no Header<br>
+  Vs 1.0.008 - 17/02/2016 , 38 Suites de testes<br>
                             

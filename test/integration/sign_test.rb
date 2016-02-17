@@ -21,7 +21,7 @@ class SignTest < ActionDispatch::IntegrationTest
     fill_in 'user_password', :with => '12345678'
     fill_in 'user_password_confirmation', :with => '12345678'
 
-    click_button 'Sign up'
+    click_button 'Cadastrar-me'
 
     # require 'pry'; binding.pry
 
@@ -82,7 +82,7 @@ class SignTest < ActionDispatch::IntegrationTest
     fill_in 'user_password', :with => '12345678'
     fill_in 'user_password_confirmation', :with => '123'
 
-    click_button 'Sign up'
+    click_button 'Cadastrar-me'
 
     # require 'pry'; binding.pry
 

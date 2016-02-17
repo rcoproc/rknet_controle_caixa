@@ -49,17 +49,17 @@ class AppTransfer
     # Date and time Local( Time Zone de São Paulo )
     date_transf = Time.current
 
-    month_day = date_transf.wday # onde 0 é domingo
+    week_day = date_transf.wday # onde 0 é domingo
     hour = date_transf.hour
 
     normal_day = *(1..5) # Segunda a Sexta
-    if normal_day.include?(month_day) and (hour >= 9 and hour <= 18)
+    if normal_day.include?(week_day) and (hour >= 9 and hour <= 18)
       tax = 5
     else
       tax = 7
     end
 
-    if (value_debt > 1000)
+    if (value_debt > 1000) # Acima de 1000 , adicional de 10 reais
       tax += 10
     end
 

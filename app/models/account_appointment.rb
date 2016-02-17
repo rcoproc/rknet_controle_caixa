@@ -4,8 +4,10 @@ class AccountAppointment < ActiveRecord::Base
   # belongs_to :user, :through => :account
 
   validates_presence_of :date, :description, :value, :deb_cre
+  validates             :account, presence: true
+  validates             :value, :numericality => { :greater_than => 0, message: 'deverá ser um valor maior que ZERO.'}
   validates_presence_of :account_id, message: '- a conta deste lançamento deverá ser informada!'
-  validate :verify_balance, :verify_values_negative
+  validate :verify_balance
 
   before_save :up_description
 
@@ -37,10 +39,6 @@ class AccountAppointment < ActiveRecord::Base
 
     end
 
-  end
-
-  def verify_values_negative
-    errors.add(:value, "Valores negativos não são permitidos o seu lançamento!") if (value <= 0)
   end
 
 
