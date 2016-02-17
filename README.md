@@ -13,4 +13,5 @@ TEST VERSION <br>
   Vs 1.0.006 - 16/02/2016 , Arquivos de Layout com tag viewport e ambiente do Heroku Pronto<br>
   Vs 1.0.006 - 16/02/2016 , Movimentações completa na conta(Saque, depósito, taxa de transferência, <br>
                             , kaminari na paginação e combo de seleção das contas <br>
+  Vs 1.0.007 - 17/02/2016 , Ajustes diversos no layout, tela de novo usuário e lógica de filtor no Header<br>
                             
