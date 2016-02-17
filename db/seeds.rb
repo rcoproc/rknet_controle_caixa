@@ -6,12 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.destroy_all
-user1 = User.create(name: 'RCO', email: 'rcoproc@gmail.com', password: '12345678', password_confirmation: '12345678')
-user2 = User.create(name: 'Ricardo', email: 'ricardo@rcop.com.br', password: '12345678', password_confirmation: '12345678')
+AccountAppointment.transaction do
+  AccountAppointment.destroy_all
+end
+
+# Destroy with and without scope(active:false)
+Account.transaction do
+  Account.destroy_all
+  Account.where(active: false).unscoped.destroy_all
+end
+
+User.transaction do
+  User.destroy_all
+end
+
+user1 = User.create(name: 'RCO', email: 'caixa@gmail.com', password: '12345678', password_confirmation: '12345678')
+user2 = User.create(name: 'Ricardo', email: 'financeiro@gmail.com', password: '12345678', password_confirmation: '12345678')
 
 
-Account.destroy_all
 
 contas = []
 

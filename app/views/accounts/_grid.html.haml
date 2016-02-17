@@ -1,6 +1,6 @@
 = define_grid(@accounts, hide_submit_button: true, hide_reset_button: true, show_filters: :always, allow_showing_all_records: false, upper_pagination_panel: true, html: { class: 'table table-striped table-hover table-condensed' } ) do |g|
   - g.column :html => {:style => 'text-align: center'}  do |a|
-    - link_to 'Lançar', account_appointments_path(conta_id: a.id), class: 'btn btn-success', title:'Clique aqui para fazer os lançamentos(DébitoxCrédito) desta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
+    - link_to 'Lançamentos', account_appointments_path(conta_id: a.id), class: 'btn btn-success', title:'Clique aqui para fazer os lançamentos(DébitoxCrédito) desta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
   - g.column name: 'Conta', attribute: 'name', detach_with_id: :name_filter do |a|
     - link_to a.name, account_path(a), title:'Clique aqui para Visualizar os dados desta Conta.', 'data-togle' => 'tooltip', 'data-placement' => 'right'
 

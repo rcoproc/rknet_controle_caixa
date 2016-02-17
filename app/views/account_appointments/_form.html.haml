@@ -13,9 +13,9 @@
     - conta = session[:conta_id]
     - if conta > 0
       = f.hidden_field :conta_id, :value => conta
-      = f.collection_select :account_id, current_user.accounts.order(:name), :id, :name, { include_blank: true,  :selected => conta, class: 'form-control' }
+      = f.collection_select :account_id, current_user.accounts.order(:name), :id, :name,  { include_blank: true,  :selected => conta}, { class: 'form-control' }
     - else
-      = f.collection_select :account_id, current_user.accounts.order(:name), :id, :name, { include_blank: true, class: 'form-control'}
+      = f.collection_select :account_id, current_user.accounts.order(:name), :id, :name, { include_blank: true}, { class: 'form-control'}
   .form-group
     = f.label :date , class: "control-label"
     = f.date_field :date, :value => Time.now.strftime('%Y-%m-%d'), class: 'form-control'
@@ -35,14 +35,14 @@
     %br/
     = f.select :deb_cre, DEB_CRE , class: 'form-control'
     / <= f.text_field :deb_cre %>
-  .form-group
+  .form-group-lg
     = f.label :value, class: "control-label"
     %br/
     - if params.has_key?(:type_app)
       = f.number_field :value, autofocus: true,  class: 'form-control', step: 'any'
     - else
       = f.number_field :value, class: 'form-control', step: 'any'
-  .form-group
+  .form-group{style: 'margin-top: 10px;'}
     = f.submit 'Gravar', class: 'btn btn-success', data: { confirm: 'Tem certeza?' }
     -# = link_to 'Novo Lançamento', acc_create_and_new_path({@account_appointment}), class: 'btn btn-success', method: :post
     = link_to 'Voltar', account_appointments_path, class: 'btn btn-default'

@@ -47,9 +47,9 @@ class Account < ActiveRecord::Base
   protected
 
   def prohibity_account_destroy
-    errors.add(:name, "A conta não pode ser excluida!!")
-
-    return false
+    # errors.add(:name, "A conta não pode ser excluida!!")
+    #
+    # return false
 
   end
 

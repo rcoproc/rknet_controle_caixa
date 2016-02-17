@@ -34,7 +34,7 @@ $navbar-default-link-hover-color: #d9edf7;
 
 
 body {
-  margin-top: 55px;
+  margin-top: 60px;
 }
 
 
@@ -74,4 +74,9 @@ body {
 
 .navbar-text.text-white {
   color: #fff;
+}
+
+.navbar-default {
+  -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
 }

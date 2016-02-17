@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
 
   post '/acc_app_create_and_new' => 'account_appointments#create_and_new', as: :acc_create_and_new
-
+  post '/acc_app_index'          => 'account_appointments#index',          as: :acc_app_index
+  get  'change',                to: 'account_appointmentsh#index'
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }

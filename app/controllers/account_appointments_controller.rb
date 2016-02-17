@@ -8,17 +8,9 @@ class AccountAppointmentsController < ApplicationController
   # GET /account_appointments
   def index
 
+    conta = config_session_conta_id
 
-    if params.has_key?(:conta_id)
-      conta = params[:conta_id]
-
-      if session[:conta_id] != conta
-        session[:conta_id] = conta
-      end
-    else
-      conta = session[:conta_id]
-    end
-
+    # Params to Filter in index Page
     start_date = params[:start_date] if params.has_key?(:start_date)
     end_date = params[:end_date] if params.has_key?(:end_date)
     tipo = params[:deb_cre] if params.has_key?(:deb_cre)
@@ -53,6 +45,9 @@ class AccountAppointmentsController < ApplicationController
 
   # GET /account_appointments/1
   def show
+
+    conta = config_session_conta_id
+
   end
 
   # GET /account_appointments/new
@@ -135,4 +130,20 @@ class AccountAppointmentsController < ApplicationController
       redirect_to accounts_path
     end
   end
+
+  def config_session_conta_id
+
+    if params.has_key?(:conta_id)
+      conta = params[:conta_id]
+
+      if session[:conta_id] != conta
+        session[:conta_id] = conta
+      end
+    else
+      conta = session[:conta_id]
+    end
+
+    return conta
+  end
+
 end

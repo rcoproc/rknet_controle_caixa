@@ -24,7 +24,7 @@
             .text-center
               Saldo Atual
         .panel-body
-          %h3
+          %h2
             .text-center
               #{@account.balance_br}
     .col-lg-6
@@ -65,24 +65,25 @@
               .col-lg-6
                 .form-group
                   .row
-                    .col-lg-6
+                    .col-lg-4
                       = label_tag(:Data, "D. Inicio", class: 'control-label')
                       / <= select_tag :conta_id, options_for_select( current_user.accounts.collect{|a| [a.name, a.id]} ) %>
-                    .col-lg-6
+                    .col-lg-8
                       - if params.has_key?(:start_date)
                         = date_field_tag :start_date, params[:start_date], class: 'form-control'
                       - else
-                        = date_field_tag :start_date, class: 'form-control'
+                        = date_field_tag :start_date, nil , class: 'form-control'
               .col-lg-6
                 .form-group
-                  .col-lg-6
-                    = label_tag(:Data, "D. Final", class: 'control-label')
-                  / <= select_tag :conta_id, options_for_select( current_user.accounts.collect{|a| [a.name, a.id]} ) %>
-                  .col-lg-6
-                    - if params.has_key?(:end_date)
-                      = date_field_tag :end_date, params[:end_date], class: 'form-control'
-                    - else
-                      = date_field_tag :end_date, class: 'form-control'
+                  .row
+                    .col-lg-4
+                      = label_tag(:Data, "D. Final", class: 'control-label')
+                    / <= select_tag :conta_id, options_for_select( current_user.accounts.collect{|a| [a.name, a.id]} ) %>
+                    .col-lg-8
+                      - if params.has_key?(:end_date)
+                        = date_field_tag :end_date, params[:end_date], class: 'form-control'
+                      - else
+                        = date_field_tag :end_date, nil, class: 'form-control'
             .row
               .col-lg-6
                 .form-group
@@ -150,17 +151,17 @@
             .text-center
               = link_to 'Visualizar', account_appointment_path(acc_app)
       %tr
-      %tr
-        %td
-        %td
-        %td
-        %td{:colspan => "2"}
-          %h4
-            Saldo Inicial
-        %td{align: "right"}
-          %h4
-            = @account.initial_balance_br
-        %td{:colspan => "4"}
+      -#%tr
+      -#  %td
+      -#  %td
+      -#  %td
+      -#  %td{:colspan => "2"}
+      -#    %h4
+      -#      Saldo Inicial
+      -#  %td{align: "right"}
+      -#    %h4
+      -#      = @account.initial_balance_br
+      -#  %td{:colspan => "4"}
 .row
   = paginate @accounts_appointments
 %br/
