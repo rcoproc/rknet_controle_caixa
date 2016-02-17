@@ -30,17 +30,22 @@
       .row
         .col-lg-1
         .col-lg-4{ style: 'margin: 10px 0px;'}
-          %button.btn.btn-default.wg-external-submit-button{'data-grid-name' => 'grid'}
-            = icon('filter')
-            Filtrar
-          %button.btn.btn-default.wg-external-reset-button{'data-grid-name' => 'grid'}
-            = icon('refresh')
-            limpar
-          = link_to new_account_path, class: 'btn btn-primary' do
-            = icon('plus')
-            Incluir
-          %button.btn.btn-success.wg-external-csv-export-button{'data-grid-name' => 'grid'}
-            Exp. para CSV
+          .row
+            .col-lg-6
+              .pull-left{style: 'margin: 2px;'}
+                %button.btn.btn-default.wg-external-submit-button{'data-grid-name' => 'grid'}
+                  = icon('filter')
+                  Filtrar
+                %button.btn.btn-default.wg-external-reset-button{'data-grid-name' => 'grid'}
+                  = icon('refresh')
+                  limpar
+            .col-lg-6
+              .pull-right{style: 'margin: 2px;'}
+                = link_to new_account_path, class: 'btn btn-primary' do
+                  = icon('plus')
+                  Incluir
+                %button.btn.btn-success.wg-external-csv-export-button{style: 'margin: 2px;', 'data-grid-name' => 'grid'}
+                  Exp. para CSV
 .row
   .col-lg-12
     =render_grid(@accounts)
